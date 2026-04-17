@@ -1,14 +1,6 @@
-name: Build Zenon Editor EXE
-
-on:
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: windows-latest
+# Add this below your 'build' job
+  build-macos:
+    runs-on: macos-latest
 
     steps:
     - name: Checkout code
@@ -22,23 +14,21 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        # We install Pillow so PyInstaller can convert your PNG logo to a Windows ICO
-        pip install pyinstaller PyQt5 Pillow 
-        if (Test-Path requirements.txt) { pip install -r requirements.txt }
+        pip install pyinstaller PyQt5 Pillow
+        if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
-    - name: Build EXE with PyInstaller
-      # Using your custom flags with Windows-compliant semicolons for paths
+    - name: Build App with PyInstaller
       run: |
-        pyinstaller --onefile --noconsole `
-        --icon=Logo.png `
-        --collect-all PyQt5 `
-        --add-data "UI;UI" `
-        --add-data "icons;icons" `
-        --add-data "plugins;plugins" `
+        pyinstaller --onefile --windowed \
+        --icon=Logo.png \
+        --collect-all PyQt5 \
+        --add-data "UI:UI" \
+        --add-data "icons:icons" \
+        --add-data "plugins:plugins" \
         main.py
 
-    - name: Upload Executable
+    - name: Upload MacOS Executable
       uses: actions/upload-artifact@v4
       with:
-        name: Zenon-Editor-Windows
-        path: dist/*.exe
+        name: Zenon-Editor-MacOS
+        path: dist/main
