@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Dialog</class>
+ <widget class="QDialog" name="Dialog">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>678</width>
+    <height>180</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Dialog</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QDialog{
+	background-color : #181b28;
+	color : white;
+}
+</string>
+  </property>
+  <layout class="QGridLayout" name="gridLayout">
+   <item row="2" column="3">
+    <widget class="QPushButton" name="pushButton_2">
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	background-color : #313546;
+	color : white;
+}</string>
+     </property>
+     <property name="text">
+      <string>Cancel</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="1">
+    <widget class="QPushButton" name="pushButton">
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	background-color : #313546;
+	color : white;
+}</string>
+     </property>
+     <property name="text">
+      <string>Save</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="2">
+    <widget class="QPushButton" name="pushButton_3">
+     <property name="styleSheet">
+      <string notr="true">QPushButton{
+	background-color : #313546;
+	color : white;
+}</string>
+     </property>
+     <property name="text">
+      <string>Don't Save</string>
+     </property>
+    </widget>
+   </item>
+   <item row="2" column="0">
+    <spacer name="horizontalSpacer">
+     <property name="orientation">
+      <enum>Qt::Horizontal</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>40</width>
+       <height>20</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item row="0" column="0" colspan="2">
+    <widget class="QLabel" name="label">
+     <property name="styleSheet">
+      <string notr="true">QLabel{
+	color: white;
+}</string>
+     </property>
+     <property name="text">
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p align=&quot;center&quot;&gt;&lt;img src=&quot;data:image/png;base64,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&quot; alt=&quot;&amp;lt;svg xmlns=&amp;quot;http://www.w3.org/2000/svg&amp;quot; height=&amp;quot;48px&amp;quot; viewBox=&amp;quot;0 -960 960 960&amp;quot; width=&amp;quot;48px&amp;quot; fill=&amp;quot;#FFFFFF&amp;quot;&amp;gt;&amp;lt;path d=&amp;quot;m40-120 440-760 440 760H40Zm104-60h672L480-760 144-180Zm361.5-65.68q8.5-8.67 8.5-21.5 0-12.82-8.68-21.32-8.67-8.5-21.5-8.5-12.82 0-21.32 8.68-8.5 8.67-8.5 21.5 0 12.82 8.68 21.32 8.67 8.5 21.5 8.5 12.82 0 21.32-8.68ZM454-348h60v-224h-60v224Zm26-122Z&amp;quot;/&amp;gt;&amp;lt;/svg&amp;gt;&quot; width=&quot;48&quot; height=&quot;48&quot;/&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:14pt; font-weight:600; color:#ffffff;&quot;&gt;Save changes to document before closing?&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; color:#ffffff;&quot;&gt;Your changes will be lost if you don’t save them.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+     </property>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

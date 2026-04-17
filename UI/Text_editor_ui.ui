@@ -1,0 +1,702 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>765</width>
+    <height>583</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMainWindow {
+	background-color : #181b28;
+	color : white;
+}
+
+Qmenubar{
+	background-color : #181b28;
+	color : white;
+}
+</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QGridLayout" name="gridLayout">
+    <item row="0" column="0">
+     <widget class="QTextEdit" name="textEdit">
+      <property name="styleSheet">
+       <string notr="true">QTextEdit{
+	background-color : #181b28;
+	color : white;
+}
+</string>
+      </property>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>765</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar {
+	background-color : #181b28;
+	color : white;
+}
+</string>
+   </property>
+   <widget class="QMenu" name="menuFile">
+    <property name="styleSheet">
+     <string notr="true">QMenu {
+        background-color: #181b28;
+        color: white;
+        border: 1px solid #2a2f45;
+    }</string>
+    </property>
+    <property name="title">
+     <string>File</string>
+    </property>
+    <addaction name="actionNew_File"/>
+    <addaction name="actionOpen"/>
+    <addaction name="separator"/>
+    <addaction name="actionSave"/>
+    <addaction name="actionSave_As"/>
+    <addaction name="separator"/>
+    <addaction name="actionFile_info"/>
+    <addaction name="actionHelp"/>
+    <addaction name="actionClose"/>
+   </widget>
+   <widget class="QMenu" name="menuAppearance">
+    <property name="styleSheet">
+     <string notr="true">
+    QMenu {
+        background-color: #181b28;
+        color: white;
+        border: 1px solid #2a2f45;
+    }</string>
+    </property>
+    <property name="title">
+     <string>Appearance</string>
+    </property>
+    <addaction name="separator"/>
+    <addaction name="actionThemes"/>
+   </widget>
+   <widget class="QMenu" name="menuPlugins">
+    <property name="styleSheet">
+     <string notr="true">
+    QMenu {
+        background-color: #181b28;
+        color: white;
+        border: 1px solid #2a2f45;
+    }</string>
+    </property>
+    <property name="title">
+     <string>Plugins</string>
+    </property>
+    <addaction name="actionPlugins"/>
+   </widget>
+   <addaction name="menuFile"/>
+   <addaction name="menuAppearance"/>
+   <addaction name="menuPlugins"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar">
+   <property name="styleSheet">
+    <string notr="true">QStatusBar{
+	background-color : #181b28;
+	color : white;
+}</string>
+   </property>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QToolBar::separator {
+    width: 1px;
+    background: white;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+QToolButton:hover {
+    background-color: rgba(255, 255, 255, 20);
+    border-radius: 4px;
+}
+
+QToolButton:pressed {
+    background-color: rgba(255, 255, 255, 40);
+}
+
+QToolButton {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 6px;
+}
+
+QToolButton:checked {
+    background-color: rgba(255, 255, 255, 20);
+	border-radius: 4px;
+    color: white;
+}
+
+QToolBar{
+	spacing : 3px;
+	background-color : #181b28;
+	color : white;
+}
+</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="actionUndo"/>
+   <addaction name="actionRedo"/>
+   <addaction name="separator"/>
+   <addaction name="actionCopy"/>
+   <addaction name="actionPaste"/>
+   <addaction name="actionCut"/>
+   <addaction name="separator"/>
+   <addaction name="actionFind"/>
+   <addaction name="actionFind_and_Replace"/>
+   <addaction name="separator"/>
+   <addaction name="actionUnderline"/>
+   <addaction name="actionItallic"/>
+   <addaction name="actionBold"/>
+   <addaction name="separator"/>
+   <addaction name="actionAlignLeft"/>
+   <addaction name="actionAlign_Center"/>
+   <addaction name="actionAlign_Right"/>
+   <addaction name="actionAlign_Justify"/>
+   <addaction name="separator"/>
+   <addaction name="actionSelect_Font"/>
+   <addaction name="actionFont_Color"/>
+   <addaction name="actionFont_Size"/>
+   <addaction name="separator"/>
+  </widget>
+  <action name="actionUndo">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Undo_Light.png</normaloff>../icons/Light/Undo_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Undo</string>
+   </property>
+   <property name="toolTip">
+    <string>Undo (Ctrl + Z)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionRedo">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Redo_Light.png</normaloff>../icons/Light/Redo_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Redo</string>
+   </property>
+   <property name="toolTip">
+    <string>Redo (Ctrl + Y)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionCopy">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Copy_Light.png</normaloff>../icons/Light/Copy_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Copy</string>
+   </property>
+   <property name="toolTip">
+    <string>Copy (Ctrl + C)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionPaste">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Paste_Light.png</normaloff>../icons/Light/Paste_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Paste</string>
+   </property>
+   <property name="toolTip">
+    <string>Paste (Ctrl + V)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionCut">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Cut_Light.png</normaloff>../icons/Light/Cut_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Cut</string>
+   </property>
+   <property name="toolTip">
+    <string>Cut (Ctrl + X)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionFind">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Find_Light.png</normaloff>../icons/Light/Find_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find</string>
+   </property>
+   <property name="toolTip">
+    <string>Find (Ctrl + F)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionFind_and_Replace">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Find_and_replace_Light.png</normaloff>../icons/Light/Find_and_replace_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Find and Replace</string>
+   </property>
+   <property name="toolTip">
+    <string>Find and Repalce (Ctrl + H)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+H</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionFile">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/File_Light.png</normaloff>../icons/Light/File_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>File</string>
+   </property>
+   <property name="toolTip">
+    <string>Opens file relates tools</string>
+   </property>
+   <property name="shortcut">
+    <string>Esc</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionSave">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Save_Light.png</normaloff>../icons/Light/Save_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save</string>
+   </property>
+   <property name="toolTip">
+    <string>Saves the file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionSave_As">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Save_As_Light.png</normaloff>../icons/Light/Save_As_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Save As</string>
+   </property>
+   <property name="toolTip">
+    <string>Saves the file in a specific directory</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+S</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionNew_File">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/File_Light.png</normaloff>../icons/Light/File_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>New File</string>
+   </property>
+   <property name="toolTip">
+    <string>Creates a new untitled file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionOpen">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Open_Light.png</normaloff>../icons/Light/Open_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open</string>
+   </property>
+   <property name="toolTip">
+    <string>Opens a file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+O</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionFile_info">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/File_info_Light.png</normaloff>../icons/Light/File_info_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>File info</string>
+   </property>
+   <property name="toolTip">
+    <string>Show the file information</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionHelp">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/help_light.png</normaloff>../icons/Light/help_light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Help</string>
+   </property>
+   <property name="toolTip">
+    <string>Contains the helpful information</string>
+   </property>
+   <property name="shortcut">
+    <string>F1</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionClose">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Close_Light.png</normaloff>../icons/Light/Close_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Close</string>
+   </property>
+   <property name="toolTip">
+    <string>Closes the file</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Q</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionDark_Mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Dark_mode_Light.png</normaloff>../icons/Light/Dark_mode_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Dark Mode</string>
+   </property>
+   <property name="toolTip">
+    <string>Turns the dark mode On</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+D</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionLight_mode">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Light_mode_Light.png</normaloff>../icons/Light/Light_mode_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Light_mode</string>
+   </property>
+   <property name="toolTip">
+    <string>Turns the light mode on</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+L</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::NoRole</enum>
+   </property>
+  </action>
+  <action name="actionUnderline">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Underline_light.png</normaloff>../icons/Light/Underline_light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Underline</string>
+   </property>
+   <property name="toolTip">
+    <string>Underline (Ctrl + U)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+U</string>
+   </property>
+  </action>
+  <action name="actionItallic">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Italic_Light.png</normaloff>../icons/Light/Italic_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Itallic</string>
+   </property>
+   <property name="toolTip">
+    <string>Italic (Ctrl + I)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+I</string>
+   </property>
+  </action>
+  <action name="actionBold">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Bold_Light.png</normaloff>../icons/Light/Bold_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Bold</string>
+   </property>
+   <property name="toolTip">
+    <string>Bold (Ctrl + B)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+B</string>
+   </property>
+  </action>
+  <action name="actionAlignLeft">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Align_Left_Light.png</normaloff>../icons/Light/Align_Left_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>AlignLeft</string>
+   </property>
+   <property name="toolTip">
+    <string>Align Left (Ctrl + L)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+L</string>
+   </property>
+  </action>
+  <action name="actionAlign_Center">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Align_center_Light.png</normaloff>../icons/Light/Align_center_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Align Center</string>
+   </property>
+   <property name="toolTip">
+    <string>Align Center (Ctrl + E)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+E</string>
+   </property>
+  </action>
+  <action name="actionAlign_Right">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Align_Right_Light.png</normaloff>../icons/Light/Align_Right_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Align Right</string>
+   </property>
+   <property name="toolTip">
+    <string>Align Right (Ctrl + R)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="actionAlign_Justify">
+   <property name="checkable">
+    <bool>true</bool>
+   </property>
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Align_Justify_Light.png</normaloff>../icons/Light/Align_Justify_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Align Justify</string>
+   </property>
+   <property name="toolTip">
+    <string>Align Justify (Ctrl + J)</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+J</string>
+   </property>
+  </action>
+  <action name="actionSelect_Font">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Font_type_Light.png</normaloff>../icons/Light/Font_type_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Select Font</string>
+   </property>
+   <property name="toolTip">
+    <string>Select Font</string>
+   </property>
+  </action>
+  <action name="actionFont_Color">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Font_Color_Light.png</normaloff>../icons/Light/Font_Color_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Font Color</string>
+   </property>
+   <property name="toolTip">
+    <string>Select Font Color</string>
+   </property>
+  </action>
+  <action name="actionFont_Size">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Font_size_Light.png</normaloff>../icons/Light/Font_size_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Font Size</string>
+   </property>
+   <property name="toolTip">
+    <string>Select Font Size</string>
+   </property>
+  </action>
+  <action name="actionPlugins">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Plugin_Light.png</normaloff>../icons/Light/Plugin_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Open Plugin Manager</string>
+   </property>
+   <property name="toolTip">
+    <string>opens plugin manager</string>
+   </property>
+  </action>
+  <action name="actionCustom_Style">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Style_Light.png</normaloff>../icons/Light/Style_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Add a custom Style</string>
+   </property>
+   <property name="toolTip">
+    <string>adds a custom style</string>
+   </property>
+  </action>
+  <action name="actionThemes">
+   <property name="icon">
+    <iconset>
+     <normaloff>../icons/Light/Format_Light.png</normaloff>../icons/Light/Format_Light.png</iconset>
+   </property>
+   <property name="text">
+    <string>Theme Manger</string>
+   </property>
+   <property name="toolTip">
+    <string>shows the themes</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
