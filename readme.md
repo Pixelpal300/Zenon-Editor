@@ -155,7 +155,7 @@ Please be aware that this project is still is in it's alpha stage and you might 
 
 ## License
 
-This project is open-source. You may modify and distribute it as needed.
+This project is under the MIT license
 
 ---
 
